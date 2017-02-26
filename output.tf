@@ -27,11 +27,8 @@ output "back_subnet_az_b_id" {
   value="${aws_subnet.subnet_back_b.id}"
 
 }
-
 output "back_subnet_az_c_id" {
-
   value="${aws_subnet.subnet_back_c.id}"
-
 }
 output "vpc_main_id"{
   value = "${aws_vpc.main.id}"
@@ -41,6 +38,12 @@ output "db_subnet_id"{
 }
 output "sg_backend_id"{
   value ="${aws_security_group.sg_back_service.id}"
+}
+output "sg_front_id"{
+  value ="${aws_security_group.sg_front_service.id}"
+}
+output "sg_public_id"{
+  value ="${aws_security_group.sg_public.id}"
 }
 output "rancher_nfs_dnsname_a"{
   value="${aws_efs_mount_target.mount_front_a.dns_name}"
