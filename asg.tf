@@ -35,7 +35,24 @@ resource "aws_security_group_rule" "allow_inbound_traffic_http_from_sg_public" {
     source_security_group_id = "${aws_security_group.sg_public.id}"
 
 }
+resource "aws_security_group_rule" "allow_inbound_traffic_https_from_sg_public" {
+    type = "ingress"
+    from_port = 443
+    to_port = 443
+    protocol = "tcp"
+    security_group_id = "${aws_security_group.sg_front_service.id}"
+    source_security_group_id = "${aws_security_group.sg_public.id}"
 
+}
+
+resource "aws_security_group_rule" "allow_inbound_traffic_https" {
+    type = "ingress"
+    from_port = 443
+    to_port = 443
+    protocol = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+    security_group_id = "${aws_security_group.sg_public.id}"
+}
 resource "aws_security_group_rule" "allow_inbound_traffic_http" {
     type = "ingress"
     from_port = 80
@@ -55,16 +72,6 @@ resource "aws_security_group_rule" "allow_all_egress" {
 
     security_group_id = "${aws_security_group.sg_front_service.id}"
 }
-/* Allow EFS connection */
-#resource "aws_security_group_rule" "allow_efs_connexion" {
-#    type = "ingress"
-#    from_port = 2049
-#    to_port = 2049
-#    protocol = "-1"
-#    cidr_blocks = ["0.0.0.0/0"]
-
-#    security_group_id = "${aws_security_group.sg_front_service.id}"
-#}
 
 /* Permit SSH to instances from home */
 resource "aws_security_group_rule" "allow_ssh_from_home" {
