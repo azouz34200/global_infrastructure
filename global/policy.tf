@@ -30,14 +30,6 @@ resource "aws_iam_policy_attachment" "AmazonRoute53DomainsFullAccess-policy-atta
     roles      = []
 }
 
-resource "aws_iam_policy_attachment" "AdministratorAccess-policy-attachment" {
-    name       = "AdministratorAccess-policy-attachment"
-    policy_arn = "arn:aws:iam::aws:policy/AdministratorAccess"
-    groups     = ["admin"]
-    users      = []
-    roles      = []
-}
-
 resource "aws_iam_policy_attachment" "AmazonVPCFullAccess-policy-attachment" {
     name       = "AmazonVPCFullAccess-policy-attachment"
     policy_arn = "arn:aws:iam::aws:policy/AmazonVPCFullAccess"
