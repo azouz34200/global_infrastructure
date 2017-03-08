@@ -26,4 +26,6 @@ node {
     }
 
     }
+  }catch (exc) {
+    echo "Caught: ${exc}"
   }
