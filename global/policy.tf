@@ -4,6 +4,7 @@ resource "aws_iam_policy_attachment" "AmazonRDSFullAccess-policy-attachment" {
     groups     = ["${var.group-name}"]
     users      = []
     roles      = []
+    depends_on = ["aws_iam_group.infra_automation"]
 }
 
 resource "aws_iam_policy_attachment" "AmazonEC2FullAccess-policy-attachment" {
@@ -12,6 +13,8 @@ resource "aws_iam_policy_attachment" "AmazonEC2FullAccess-policy-attachment" {
     groups     = ["${var.group-name}"]
     users      = []
     roles      = []
+    depends_on = ["aws_iam_group.infra_automation"]
+
 }
 
 resource "aws_iam_policy_attachment" "AutoScalingFullAccess-policy-attachment" {
@@ -20,6 +23,8 @@ resource "aws_iam_policy_attachment" "AutoScalingFullAccess-policy-attachment" {
     groups     = ["${var.group-name}"]
     users      = []
     roles      = []
+    depends_on = ["aws_iam_group.infra_automation"]
+
 }
 
 resource "aws_iam_policy_attachment" "AmazonRoute53DomainsFullAccess-policy-attachment" {
@@ -28,6 +33,8 @@ resource "aws_iam_policy_attachment" "AmazonRoute53DomainsFullAccess-policy-atta
     groups     = ["${var.group-name}"]
     users      = []
     roles      = []
+    depends_on = ["aws_iam_group.infra_automation"]
+
 }
 
 resource "aws_iam_policy_attachment" "AmazonVPCFullAccess-policy-attachment" {
@@ -36,6 +43,8 @@ resource "aws_iam_policy_attachment" "AmazonVPCFullAccess-policy-attachment" {
     groups     = ["${var.group-name}"]
     users      = []
     roles      = []
+    depends_on = ["aws_iam_group.infra_automation"]
+
 }
 
 resource "aws_iam_policy_attachment" "IAMReadOnlyAccess-policy-attachment" {
@@ -44,6 +53,8 @@ resource "aws_iam_policy_attachment" "IAMReadOnlyAccess-policy-attachment" {
     groups     = ["${var.group-name}"]
     users      = []
     roles      = []
+    depends_on = ["aws_iam_group.infra_automation"]
+
 }
 
 resource "aws_iam_policy_attachment" "AmazonESFullAccess-policy-attachment" {
@@ -52,6 +63,8 @@ resource "aws_iam_policy_attachment" "AmazonESFullAccess-policy-attachment" {
     groups     = ["${var.group-name}"]
     users      = []
     roles      = []
+    depends_on = ["aws_iam_group.infra_automation"]
+
 }
 
 resource "aws_iam_policy_attachment" "AWSCertificateManagerFullAccess-policy-attachment" {
@@ -60,4 +73,6 @@ resource "aws_iam_policy_attachment" "AWSCertificateManagerFullAccess-policy-att
     groups     = ["${var.group-name}"]
     users      = []
     roles      = []
+    depends_on = ["aws_iam_group.infra_automation"]
+
   }
